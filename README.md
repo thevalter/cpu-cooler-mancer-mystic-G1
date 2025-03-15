@@ -29,6 +29,24 @@ Than replace the `VENDER_ID` and `PRODUCT_ID` ON cpu_cooler.py script.
 Exec:
 
 ```bash
+sudo python cpu_cooler.py
+```
+
+To run without `sudo` it's necessary to create an `udev rule` to allow you user access the device.
+
+Create a file at `/etc/udev/rules.d/99-cpu-cooler.rules` with content: (replace `VENDOR-ID` and `PRODUCT-ID` with your vendor-id and product-id)
+```bash
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="VENDOR-ID", ATTRS{idProduct}=="PRODUCT-ID", MODE="0666"
+```
+
+Update the udev rules:
+```bash
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+Now check if you can run without sudo:
+```bash
 python cpu_cooler.py
 ```
 
@@ -36,7 +54,9 @@ python cpu_cooler.py
 
 To exec the script as as service and show cpu cooler even after reboot, you can create a `systemd service`.
 
-With commands
+Firt, edit the cpu-cooler.service and replace the line `User=your_user ` with the user that will run the script. (Ensure that you created the udev rule above)
+
+Than, exec the commands
 
 ```bash
 sudo cp cpu-cooler.service /etc/systemd/system
