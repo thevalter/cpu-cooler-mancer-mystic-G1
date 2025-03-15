@@ -1,0 +1,14 @@
+[Unit]
+Description=CPU Cooler
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=/usr/bin/env python /home/martiniano/.local/bin/cpu_cooler.py
+
+[Install]
+WantedBy=multi-user.target
+Alias=cpu-cooler.service
