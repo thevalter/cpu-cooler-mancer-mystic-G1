@@ -6,7 +6,7 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-ExecStart=/usr/bin/env python ~/.local/bin/cpu_cooler.py
+ExecStart=/usr/bin/env python %h/.local/bin/cpu_cooler.py
 
 [Install]
 WantedBy=default.target
