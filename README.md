@@ -26,7 +26,7 @@ First identifer the vendorId and productId of you device. You can use the `lsusb
 
 Than replace the `VENDER_ID` and `PRODUCT_ID` ON cpu_cooler.py script.
 
-Exec:
+After, exec:
 
 ```bash
 sudo python cpu_cooler.py
