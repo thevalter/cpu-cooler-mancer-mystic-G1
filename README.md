@@ -35,17 +35,20 @@ sudo python cpu_cooler.py
 To run without `sudo` it's necessary to create an `udev rule` to allow you user access the device.
 
 Create a file at `/etc/udev/rules.d/99-cpu-cooler.rules` with content: (replace `VENDOR-ID` and `PRODUCT-ID` with your vendor-id and product-id)
+
 ```bash
 SUBSYSTEMS=="usb", ATTRS{idVendor}=="VENDOR-ID", ATTRS{idProduct}=="PRODUCT-ID", MODE="0666"
 ```
 
 Update the udev rules:
+
 ```bash
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
 
 Now check if you can run without sudo:
+
 ```bash
 python cpu_cooler.py
 ```
