@@ -52,15 +52,20 @@ python cpu_cooler.py
 
 ## Run as service
 
-To exec the script as as service and show cpu cooler even after reboot, you can create a `systemd service`.
+To exec the script as service and show cpu cooler even after reboot, you can create a `systemd service`.
 
-First, edit file `cpu-cooler.service` and replace the line `User=your_user` with the user that will run the script. (Ensure that you created the udev rule above)
-
-Than, exec the commands
+First, let's copy the `cpu_cooler.py` to `~/.local/bin` folder:
 
 ```bash
-sudo cp cpu-cooler.service /etc/systemd/system
-sudo systemctl daemon-reload
-sudo systemctl enable cpu-cooler
-sudo systemctl start cpu-cooler
+mkdir -p ~/.local/bin
+cp cpu_cooler.py ~/.local/bin
+```
+
+Than, copy the `cpu-cooler.service` and enable the systemd service
+
+```bash
+cp cpu-cooler.service ~/.config/systemd/user
+systemctl --user daemon-reload
+systemctl --user enable cpu-cooler
+systemctl --user start cpu-cooler
 ```
