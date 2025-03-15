@@ -6,7 +6,7 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-User=root
+User=your_user
 ExecStart=/usr/bin/env python /home/martiniano/.local/bin/cpu_cooler.py
 
 [Install]
