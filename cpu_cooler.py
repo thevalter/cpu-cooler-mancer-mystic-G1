@@ -9,13 +9,12 @@ def get_cpu_temp():
 VENDOR_ID = 0xaa88
 PRODUCT_ID = 0x8666
 
-device = hid.device()
-device.open(VENDOR_ID, PRODUCT_ID)
+device = hid.Device(VENDOR_ID, PRODUCT_ID)
 
 def write_to_cpu_fan_display(dev):
     fCpuTemp = get_cpu_temp()
 
-    byte_comands = [0, int(fCpuTemp)]
+    byte_comands = bytes([0, int(fCpuTemp)])
 
     try:
         num_bytes_written = dev.write(byte_comands)

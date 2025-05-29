@@ -4,7 +4,9 @@ This script capture the CPU temperature and show on Water Cooler display on Linu
 
 Since the manufacture supply a software only for Windows.
 
-Tested with Water Cooler Husky Glacier
+Tested with Water Cooler Mancer Mystic G1 (illustrative photos of another model)
+
+Credits to the script creator: https://github.com/martiniano/
 
 ![](images/cpu-cooler.jpeg)
 
